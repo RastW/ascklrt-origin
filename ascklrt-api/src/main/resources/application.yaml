@@ -1,0 +1,25 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: ascklrt-api-client
+  cloud:
+    nacos:
+      server-addr: http://127.0.0.1:8010
+      discovery:
+        server-addr: http://127.0.0.1:8010
+
+dubbo:
+  application:
+    name: ascklrt-api-client
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://127.0.0.1:8010
+  cloud:
+    subscribed-services: ascklrt-payment-server
+
+logging:
+  config: classpath:log4j2-spring.xml

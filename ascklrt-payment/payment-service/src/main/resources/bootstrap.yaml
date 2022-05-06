@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: ascklrt-payment-server
+  cloud:
+    nacos:
+      config:
+        server-addr: http://127.0.0.1:8010
+        file-extension: yaml
