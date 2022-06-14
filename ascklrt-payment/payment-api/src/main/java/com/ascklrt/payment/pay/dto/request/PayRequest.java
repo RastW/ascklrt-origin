@@ -2,12 +2,14 @@ package com.ascklrt.payment.pay.dto.request;
 
 import com.ascklrt.payment.enums.PaymentChannelEnum;
 
+import java.io.Serializable;
+
 /**
  * @author goumang
  * @description
  * @date 2022/4/7 5:43 下午
  */
-public class PayRequest {
+public class PayRequest implements Serializable {
     private PaymentChannelEnum paymentChannel;
 
     private Long amount;

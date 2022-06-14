@@ -1,5 +1,6 @@
 package com.ascklrt.api;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -10,6 +11,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  * @date 2022/3/25 4:48 下午
  */
 @SpringBootApplication
+@EnableDubbo
 @ServletComponentScan
 public class AscklrtApiApplication {
 

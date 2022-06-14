@@ -1,5 +1,6 @@
 package com.ascklrt.common.util;
 
+import cn.hutool.core.bean.BeanUtil;
 import org.springframework.beans.BeanUtils;
 
 /**
@@ -7,16 +8,20 @@ import org.springframework.beans.BeanUtils;
  * @description
  * @date 2022/4/10 12:01 上午
  */
-public class BeanUtil {
+public class SwitchUtil {
 
     // 切换bean
     public static <T> T switchBean(Object object, Class<T> clazz) {
-        if (object == null) {
+        if (BeanUtil.isEmpty(object)) {
             return null;
         }
-
         T newObj = null;
-        BeanUtils.copyProperties(object, newObj);
+        try {
+            newObj = clazz.newInstance();
+            BeanUtils.copyProperties(object, newObj);
+        } catch (Exception e) {
+
+        }
         return newObj;
     }
 }

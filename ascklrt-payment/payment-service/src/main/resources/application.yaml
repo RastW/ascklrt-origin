@@ -3,24 +3,31 @@ server:
 
 spring:
   application:
-    name: ascklrt-payment-server
+    name: ascklrt-payment-provider
   cloud:
-    # nacos配置
     nacos:
-      server-addr: http://127.0.0.1:8010
       # 注册
       discovery:
-        server-addr: http://127.0.0.1:8010
-
+        server-addr: http://127.0.0.1:8848      # nacos地址
+        namespace: public                       # 命名空间
+        # service: ascklrt-payment-provider
+        # heart-beat-timeout: 15000             # 健康检查超时时间
+        # heart-beat-interval: 5000             # 健康检查
+        # group: ascklrt                        # 所属组（同一组内微服务才可以调用
+        # register-enabled: true                # 是否注册
+        # cluster-name:                         # 集群名称
 
 dubbo:
-  scan:
-    base-packages: com.ascklrt.payment
-  protocol:
-    name: dubbo
-    port: -1
+  application:
+    name: ascklrt-payment-provider
   registry:
-    address: nacos://127.0.0.1
+    address: nacos://127.0.0.1:8848             # 注册Nacos协议/地址
+    register: true
+  protocol:
+    name: dubbo                                 # 使用协议
+    port: -1                                    # dubbo协议暴露端口, -1自动分配
+  scan:
+    base-packages: com.ascklrt.payment          # 服务包地址
 
 logging:
   config: classpath:log4j2-spring.xml
