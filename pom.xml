@@ -7,6 +7,7 @@
         <module>ascklrt-api</module>
         <module>ascklrt-common</module>
         <module>ascklrt-payment</module>
+        <module>ascklrt-process</module>
     </modules>
 
     <groupId>com.ascklrt</groupId>
@@ -24,6 +25,8 @@
         <dubbo.registry.nacos.version>2.6.9</dubbo.registry.nacos.version>
         <spring.context.support.version>1.0.11</spring.context.support.version>
         <nacos.version>2.0.3</nacos.version>
+        <flowable.version>6.3.0</flowable.version>
+        <mysql.drvier.version>8.0.26</mysql.drvier.version>
     </properties>
 
     <parent>
@@ -109,6 +112,17 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.ascklrt</groupId>
+                <artifactId>process-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ascklrt</groupId>
+                <artifactId>process-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!-- Spring cloud 核心组件 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -153,6 +167,19 @@
                 <groupId>com.alibaba.nacos</groupId>
                 <artifactId>nacos-client</artifactId>
                 <version>${nacos.version}</version>
+            </dependency>
+
+            <!-- flowable 依赖 -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-engine</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+            <!--Mysql数据库驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.drvier.version}</version>
             </dependency>
         </dependencies>
 

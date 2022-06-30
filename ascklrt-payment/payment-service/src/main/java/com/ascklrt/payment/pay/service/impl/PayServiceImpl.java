@@ -24,8 +24,7 @@ public class PayServiceImpl implements PayService {
 
     @Override
     public PayResponse pay(PayRequest payRequest) {
-        PayResponse payResponse = payHandlerFactory.getPayHandler(payRequest.getPaymentChannel())
+        return payHandlerFactory.getPayHandler(payRequest.getPaymentChannel())
                 .pay(payRequest);
-        return payResponse;
     }
 }
